@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::group(['prefix' => 'v1'], function(){
+    // Route::apiResource('createLogin', userController::class);
+Route::post('createUser', [userController::class, 'store'])->name('users.store');
+
+
+// });
